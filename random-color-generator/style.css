@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(255, 255, 255);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+}
+
+.container label {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.container button {
+    background: transparent;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 10px 10px 10px 2px rgb(0, 0, 0);
+}
