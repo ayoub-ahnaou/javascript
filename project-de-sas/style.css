@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background: #d8e8ff;
+}
+
+.header {
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    height: 80px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.075);
+}
+
+.header img {
+    height: 90px;
+}
+
+.header label {
+    font-size: x-large;
+    color: rgb(57, 82, 163);
+    font-weight: 600;
+}
