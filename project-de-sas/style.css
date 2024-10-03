@@ -13,6 +13,7 @@
 }
 
 .header {
+    z-index: 1;
     user-select: none;
     display: flex;
     justify-content: center;
@@ -28,6 +29,67 @@
 
 .header label {
     font-size: x-large;
-    color: rgb(57, 82, 163);
+    color: #3952a3;
     font-weight: 600;
+}
+
+.body {
+    height: 100%;
+    display: flex;
+}
+
+.body .left-side {
+    background: #e0eaf8;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 4px;
+}
+
+.left-side input, .left-side select {
+    width: 100%;
+    padding: 4px;
+    color: gray;
+    border: none;
+    outline: none;
+    background: white;
+}
+
+.left-side button {
+    background: #bfdaff;
+    color: #293f86;
+    padding: 10px;
+    border: none;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.left-side button:active {
+    background: #b6d3fc;
+}
+
+.left-side input:focus, .left-side select:focus {
+    transform: scale(1.01);
+    background: rgb(250, 250, 250);
+    color: black;
+}
+
+.left-side label {
+    color: rgb(87, 87, 87);
+    font-size: small;
+}
+
+.left-side .title {
+    font-size: x-large;
+    color: #3952a3;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+}
+
+.body .right-side {
+    background: #bfdaff;
+    width: 70%;
 }
