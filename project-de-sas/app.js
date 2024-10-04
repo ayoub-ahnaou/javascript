@@ -18,6 +18,12 @@ const handleAddReservation = () => {
     }
     // verifier que tous les inputs sont remplir et ne pas vide
     if(nom && prenom && age && phone && date_res && statut){
+        // verifier le telephone est valide
+        const regex = /\d/;
+        if(!regex.test(phone)){
+            document.querySelector(".error").style.display = "block";
+            return;
+        }
         reservation.id = ID.join("");
         reservation.nom = nom;
         reservation.prenom = prenom;
