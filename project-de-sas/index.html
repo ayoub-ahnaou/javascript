@@ -17,28 +17,33 @@
         <!-- inputs side, which contains just the inputs and buttons -->
         <div class="left-side">
             <label class="title">Informations Sur Les Reservations</label>
-          <label for="">nom: </label>
-          <input type="text" placeholder="entrer votre nom" />
-          <label for="">prenom: </label>
-          <input type="text" placeholder="entrer votre prenom" />
-          <label for="">telephone: </label>
-          <input type="text" placeholder="entrer votre telephone" />
-          <label for="">age: </label>
-          <input type="text" placeholder="entrer votre age" />
-          <label for="">status: </label>
-          <select name="">
+          <label>nom: </label>
+          <input id="nom_value" type="text" placeholder="entrer votre nom" />
+          <label>prenom: </label>
+          <input id="prenom_value" type="text" placeholder="entrer votre prenom" />
+          <label>telephone: </label>
+          <input id="phone_value" type="text" placeholder="entrer votre telephone" />
+          <label>age: </label>
+          <input id="age_value" type="text" placeholder="entrer votre age" />
+          <label>status: </label>
+          <select id="statut_value" name="">
             <option value="" selected disabled>selectioner votre status</option>
             <option value="valide">Valide</option>
             <option value="reporte">reporte</option>
             <option value="annule">annule</option>
             <option value="traite">traite</option>
           </select>
-          <label for="">date de reservation: </label>
-          <input type="text" placeholder="date de reservation" />
-          <button>submit</button>
+          <label>date de reservation: </label>
+          <input id="date_res_value" type="text" placeholder="date de reservation" />
+          <span class="error">S'il vous plait remplir tous les champs !!</span>
+          <button onclick="handleAddReservation()">submit</button>
         </div>
         <!-- data side, which contains all reservations data -->
-        <div class="right-side"></div>
+        <ul class="right-side">
+            <li>
+
+            </li>
+        </ul>
       </div>
     </div>
   </body>
