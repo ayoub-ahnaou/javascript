@@ -24,6 +24,10 @@ const handleAddReservation = () => {
             document.querySelector(".error").style.display = "block";
             return;
         }
+        if(!regex.test(age)){
+            document.querySelector(".error").style.display = "block";
+            return;
+        }
         reservation.id = ID.join("");
         reservation.nom = nom;
         reservation.prenom = prenom;
@@ -32,6 +36,7 @@ const handleAddReservation = () => {
         reservation.dateReservation = date_res;
         reservation.statut = statut;
         console.log(reservation);
+        document.querySelector(".error").style.display = "none";
     }
     else{
         document.querySelector(".error").style.display = "block";
