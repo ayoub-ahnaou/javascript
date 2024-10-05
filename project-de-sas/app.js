@@ -21,15 +21,22 @@ const handleAddReservation = () => {
         // verifier le telephone est valide
         const regexPhone = /\d{10}/;
         const regexAge = /\d{2,3}/;
+        const regexDate = /\d{1,2}\/\d{1,2}\/\d{4}/;
+        // verifier est ce que le numero de telephone matcher exactement dix chiffres
         if(!regexPhone.test(phone)){
             document.querySelector(".error").style.display = "block";
             return;
         }
+        // verifier est ce que l'age est valide entre deux ou trois nombres
         if(!regexAge.test(age)){
             document.querySelector(".error").style.display = "block";
             return;
         }
         // verifier est ce que la date de reservation est valide
+        if(!regexDate.test(date_res)){
+            document.querySelector(".error").style.display = "block";
+            return;
+        }
         reservation.id = ID.join("");
         reservation.nom = nom;
         reservation.prenom = prenom;
