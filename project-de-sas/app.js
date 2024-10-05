@@ -6,19 +6,18 @@ const handleAddReservation = () => {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', // Uppercase letters
     ];
     
-    const nom = document.getElementById("nom_value").value;
-    const prenom = document.getElementById("prenom_value").value;
-    const age = document.getElementById("age_value").value;
-    const phone = document.getElementById("phone_value").value;
-    const date_res = document.getElementById("date_res_value").value;
-    const statut = document.getElementById("statut_value").value;
+    let nom = document.getElementById("nom_value").value;
+    let prenom = document.getElementById("prenom_value").value;
+    let age = document.getElementById("age_value").value;
+    let phone = document.getElementById("phone_value").value;
+    let date_res = document.getElementById("date_res_value").value;
+    let statut = document.getElementById("statut_value").value;
     let ID = [];
     for(let i=0; i<6; i++){
         ID[i] = chiffres[Math.round(Math.random() * chiffres.length)];
     }
     // verifier que tous les inputs sont remplir et ne pas vide
     if(nom && prenom && age && phone && date_res && statut){
-        // verifier le telephone est valide
         const regexPhone = /\d{10}/;
         const regexAge = /\d{2,3}/;
         const regexDate = /\d{1,2}\/\d{1,2}\/\d{4}/;
@@ -46,9 +45,13 @@ const handleAddReservation = () => {
         reservation.statut = statut;
         console.log(reservation);
         document.querySelector(".error").style.display = "none";
+        nom = ""; prenom = ""; age = ""; phone = ""; date_res = ""; statut = "";
+        document.querySelector(".succes").style.display = "block";
     }
     else{
         document.querySelector(".error").style.display = "block";
     }
+
+
 
 }
