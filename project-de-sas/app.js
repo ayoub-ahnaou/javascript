@@ -51,9 +51,12 @@ const handleAddReservation = () => {
     }
     else{
         document.querySelector(".error").style.display = "block";
+        return;
     }
     // section where the reservation will added to his brothers in the array
     // TODO: I will do it later
+    reservations.push(reservation);
+    handleAfficheReservations();
 
 }
 
@@ -66,4 +69,11 @@ if(reservations.length == 0){
 else{
     message.classList.add("hide-item");
     res_table.classList.remove("hide-item");
+}
+
+const handleAfficheReservations = () => {
+    console.log(reservations);
+    reservations.forEach((item) => {
+        console.log("uid: " + item.id + " prenom: " + item.prenom);
+    })
 }
