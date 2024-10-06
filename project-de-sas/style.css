@@ -108,6 +108,8 @@
 .body .right-side  {
     background: #bfdaff;
     width: 70%;
+    display: flex;
+    flex-direction: column;
 }
 
 .body .right-side table {
@@ -115,22 +117,33 @@
     font-family: 'Courier New';
 }
 
-th {
+.body .right-side table th {
     background: #3952a3;
     color: white;
     padding: 4px;
 }
 
-td {
+.body .right-side table td {
     flex: 1 1 20%;
-	text-align:center;
+	text-align: center;
     padding: 4px;
 }
 
-tr:nth-of-type(odd){
+.body .right-side table tr:nth-of-type(odd){
     background: #d8e7fc;
 }
 
-tr:nth-of-type(even){
+.body .right-side table tr:nth-of-type(even){
     background: #b0d1ff;
+}
+
+.body .right-side p {
+    padding: 18px;
+    padding-left: 40px;
+    color: #293f86;
+    font-weight: bold;
+}
+
+.hide-item {
+    display: none;
 }

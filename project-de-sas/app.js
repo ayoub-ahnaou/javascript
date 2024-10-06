@@ -1,5 +1,6 @@
+let reservations = [];
+
 const handleAddReservation = () => {
-    const reservations = [];
     let reservation = {};
     const chiffres = [
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', // Numbers
@@ -52,6 +53,17 @@ const handleAddReservation = () => {
         document.querySelector(".error").style.display = "block";
     }
     // section where the reservation will added to his brothers in the array
-    //! I will do it later
+    // TODO: I will do it later
 
+}
+
+const message = document.querySelector(".message");
+const res_table = document.querySelector(".reservations-table");
+if(reservations.length == 0){
+    message.classList.remove("hide-item");
+    res_table.classList.add("hide-item");
+}
+else{
+    message.classList.add("hide-item");
+    res_table.classList.remove("hide-item");
 }
