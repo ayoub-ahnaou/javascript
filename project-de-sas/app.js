@@ -45,9 +45,12 @@ const handleAddReservation = () => {
         reservation.dateReservation = date_res.value;
         reservation.statut = statut.value;
         document.querySelector(".error").style.display = "none";
-        //! This line not working, I don't know why! I'll fix it later
-        nom.value = ""; prenom.value = ""; age.value = ""; phone.value = ""; date_res.value = ""; statut.value = "";
+        nom.value = ""; prenom.value = ""; age.value = ""; 
+        phone.value = ""; date_res.value = ""; statut.value = "";
         document.querySelector(".succes").style.display = "block";
+        setInterval(() => {
+            document.querySelector(".succes").style.display = "none";
+        }, 1000);
     }
     else{
         document.querySelector(".error").style.display = "block";
@@ -72,8 +75,8 @@ else{
 }
 
 const handleAfficheReservations = () => {
-    console.log(reservations);
+    console.log(reservations.length);
     reservations.forEach((item) => {
         
-    })
+    });
 }
