@@ -43,15 +43,15 @@ const handleAddReservation = () => {
         reservation.phone = phone;
         reservation.dateReservation = date_res;
         reservation.statut = statut;
-        console.log(reservation);
         document.querySelector(".error").style.display = "none";
+        //! This line not working, I don't know why! I'll fix it later
         nom = ""; prenom = ""; age = ""; phone = ""; date_res = ""; statut = "";
         document.querySelector(".succes").style.display = "block";
     }
     else{
         document.querySelector(".error").style.display = "block";
     }
-
-
+    // section where the reservation will added to his brothers in the array
+    //! I will do it later
 
 }
