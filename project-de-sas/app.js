@@ -1,4 +1,6 @@
 let reservations = [];
+const message = document.querySelector(".message");
+const res_table = document.querySelector(".reservations-table");
 
 const handleAddReservation = () => {
     let reservation = {};
@@ -63,18 +65,19 @@ const handleAddReservation = () => {
 
 }
 
-const message = document.querySelector(".message");
-const res_table = document.querySelector(".reservations-table");
-if(reservations.length == 0){
-    message.classList.remove("hide-item");
-    res_table.classList.add("hide-item");
-}
-else{
-    message.classList.add("hide-item");
-    res_table.classList.remove("hide-item");
+const showHideTable = () => {
+    if(reservations.length == 0){
+        message.classList.remove("hide-item");
+        res_table.classList.add("hide-item");
+    }
+    else{
+        message.classList.add("hide-item");
+        res_table.classList.remove("hide-item");
+    }
 }
 
 const handleAfficheReservations = () => {
+    showHideTable();
     console.log(reservations.length);
     reservations.forEach((item) => {
         
