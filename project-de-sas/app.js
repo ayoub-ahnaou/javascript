@@ -78,8 +78,33 @@ const showHideTable = () => {
 
 const handleAfficheReservations = () => {
     showHideTable();
-    console.log(reservations.length);
+    res_table.innerHTML = `
+        <tr>
+            <th>uid</th>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>age</th>
+            <th>telephone</th>
+            <th>statut</th>
+            <th>date de reservation</th>
+            <th>operation</th>
+        </tr>
+    `;
     reservations.forEach((item) => {
-        
+        res_table.innerHTML += `
+            <tr>
+              <td>${item.id}</td>
+              <td>${item.nom}</td>
+              <td>${item.prenom}</td>
+              <td>${item.age}</td>
+              <td>${item.phone}</td>
+              <td>${item.statut}</td>
+              <td>${item.dateReservation}</td>
+              <td>
+                <span>update</span>
+                <span>delete</span>
+              </td>
+            </tr>
+        `;
     });
 }
