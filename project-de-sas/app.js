@@ -24,7 +24,7 @@ const handleAddReservation = () => {
         const regexPhone = /\d{10}/;
         const regexAge = /\d{2,3}/;
         const regexDate = /\d{1,2}\/\d{1,2}\/\d{4}/;
-        const regexPreNom = /\w/;
+        const regexPreNom = /^[a-zA-Z]+$/;
         // verifier est ce que le nom et le prenom sont valide
         if(!regexPreNom.test(nom.value) || !regexPreNom.test(prenom.value)){
             document.querySelector(".error").style.display = "block";
