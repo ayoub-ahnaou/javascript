@@ -147,3 +147,16 @@
 .hide-item {
     display: none;
 }
+
+tr .operation {
+    display: flex;
+}
+
+td div {
+    width: 50%;
+    cursor: pointer;
+}
+
+td div:hover {
+    background: #e7f1ff;
+}

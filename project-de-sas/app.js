@@ -100,9 +100,9 @@ const handleAfficheReservations = () => {
               <td>${item.phone}</td>
               <td>${item.statut}</td>
               <td>${item.dateReservation}</td>
-              <td>
-                <span>update</span>
-                <span>delete</span>
+              <td class="operation">
+                <div>update</div>
+                <div>delete</div>
               </td>
             </tr>
         `;
