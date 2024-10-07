@@ -24,6 +24,12 @@ const handleAddReservation = () => {
         const regexPhone = /\d{10}/;
         const regexAge = /\d{2,3}/;
         const regexDate = /\d{1,2}\/\d{1,2}\/\d{4}/;
+        const regexPreNom = /\w/;
+        // verifier est ce que le nom et le prenom sont valide
+        if(!regexPreNom.test(nom.value) || !regexPreNom.test(prenom.value)){
+            document.querySelector(".error").style.display = "block";
+            return;
+        }            
         // verifier est ce que le numero de telephone matcher exactement dix chiffres
         if(!regexPhone.test(phone.value)){
             document.querySelector(".error").style.display = "block";
@@ -58,8 +64,7 @@ const handleAddReservation = () => {
         document.querySelector(".error").style.display = "block";
         return;
     }
-    // section where the reservation will added to his brothers in the array
-    // TODO: I will do it later
+    // side where the reservation will added to his brothers in the array
     reservations.push(reservation);
     handleAfficheReservations();
 
