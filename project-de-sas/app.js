@@ -119,6 +119,8 @@ const handleAfficheReservations = () => {
 }
 
 const fillInputsWithValue = (index) => {
+    document.querySelector(".error").style.display = "none";
+
     nom.value = reservations[index].nom;
     prenom.value = reservations[index].prenom;
     age.value = reservations[index].age;
@@ -133,4 +135,60 @@ const fillInputsWithValue = (index) => {
     // switch between buttons (update and submit) in html
     document.querySelector(".btn-update").style.display = "block";
     document.querySelector(".btn-submit").style.display = "none";
+    document.querySelector(".btn-update").addEventListener("click", () => {
+        handleUpdateReservation(index);
+    })
+    handleAfficheReservations();
+}
+
+const handleUpdateReservation = (index) => {
+    document.querySelector(".error").style.display = "none";
+
+    if(nom.value && prenom.value && age.value && phone.value && date_res.value && statut.value){
+        const regexPhone = /\d{10}/;
+        const regexAge = /\d{2,3}/;
+        const regexDate = /\d{1,2}\/\d{1,2}\/\d{4}/;
+        const regexPreNom = /^[a-zA-Z]+$/;
+        // verifier est ce que le nom et le prenom sont valide
+        if(!regexPreNom.test(nom.value) || !regexPreNom.test(prenom.value)){
+            document.querySelector(".error").style.display = "block";
+            return;
+        }            
+        // verifier est ce que le numero de telephone matcher exactement dix chiffres
+        if(!regexPhone.test(phone.value)){
+            document.querySelector(".error").style.display = "block";
+            return;
+        }
+        // verifier est ce que l'age est valide entre deux ou trois nombres
+        if(!regexAge.test(age.value)){
+            document.querySelector(".error").style.display = "block";
+            return;
+        }
+        // verifier est ce que la date de reservation est valide
+        if(!regexDate.test(date_res.value)){
+            document.querySelector(".error").style.display = "block";
+            return;
+        }
+        reservations[index].nom = nom.value;
+        reservations[index].prenom = prenom.value;
+        reservations[index].age = age.value;
+        reservations[index].phone = phone.value;
+        reservations[index].dateReservation = date_res.value;
+        reservations[index].statut = statut.value;
+        document.querySelector(".error").style.display = "none";
+        nom.value = ""; prenom.value = ""; age.value = ""; 
+        phone.value = ""; date_res.value = ""; statut.value = "";
+        document.querySelector(".succes").style.display = "block";
+        setInterval(() => {
+            document.querySelector(".succes").style.display = "none";
+        }, 1000);
+
+        // switch between buttons (update and submit) in html
+        document.querySelector(".btn-update").style.display = "none";
+        document.querySelector(".btn-submit").style.display = "block";
+    }
+    else{
+        document.querySelector(".error").style.display = "block";
+        return;
+    }
 }
