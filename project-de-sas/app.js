@@ -1,6 +1,14 @@
 let reservations = [];
 const message = document.querySelector(".message");
+const updateMessage = document.querySelector(".updateMessage");
 const res_table = document.querySelector(".reservations-table");
+
+let nom = document.getElementById("nom_value");
+let prenom = document.getElementById("prenom_value");
+let age = document.getElementById("age_value");
+let phone = document.getElementById("phone_value");
+let date_res = document.getElementById("date_res_value");
+let statut = document.getElementById("statut_value");
 
 const handleAddReservation = () => {
     let reservation = {};
@@ -9,12 +17,6 @@ const handleAddReservation = () => {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', // Uppercase letters
     ];
     
-    let nom = document.getElementById("nom_value");
-    let prenom = document.getElementById("prenom_value");
-    let age = document.getElementById("age_value");
-    let phone = document.getElementById("phone_value");
-    let date_res = document.getElementById("date_res_value");
-    let statut = document.getElementById("statut_value");
     let ID = [];
     for(let i=0; i<6; i++){
         ID[i] = chiffres[Math.round(Math.random() * chiffres.length)];
@@ -45,6 +47,8 @@ const handleAddReservation = () => {
             document.querySelector(".error").style.display = "block";
             return;
         }
+        let i = 0;
+        reservation.index = i++;
         reservation.id = ID.join("");
         reservation.nom = nom.value;
         reservation.prenom = prenom.value;
@@ -106,10 +110,27 @@ const handleAfficheReservations = () => {
               <td>${item.statut}</td>
               <td>${item.dateReservation}</td>
               <td class="operation">
-                <div>update</div>
+                <div onClick="fillInputsWithValue(${item.index})" >update</div>
                 <div>delete</div>
               </td>
             </tr>
         `;
     });
+}
+
+const fillInputsWithValue = (index) => {
+    nom.value = reservations[index].nom;
+    prenom.value = reservations[index].prenom;
+    age.value = reservations[index].age;
+    phone.value = reservations[index].phone;
+    date_res.value = reservations[index].dateReservation;
+    statut.value = reservations[index].statut;
+
+    document.querySelector(".updateMessage").style.display = "block";
+    setInterval(() => {
+        document.querySelector(".updateMessage").style.display = "none";
+    }, 5000);
+    // switch between buttons (update and submit) in html
+    document.querySelector(".btn-update").style.display = "block";
+    document.querySelector(".btn-submit").style.display = "none";
 }

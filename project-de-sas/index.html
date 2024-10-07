@@ -37,7 +37,9 @@
           <input id="date_res_value" type="text" placeholder="date de reservation" />
           <span class="error">S'il vous plait, quelque erreurs occurs lors de l'insertion, veuillez verifier une autre fois!</span>
           <span class="succes">Reservation informations a ajoutés avec succes..</span>
-          <button onclick="handleAddReservation()">submit</button>
+          <span class="updateMessage">Vous pouvez modifier les informations de reservation ..</span>
+          <button class="btn-submit" onclick="handleAddReservation()">submit</button>
+          <button class="btn-update" onclick="handleUpdateReservation()">update</button>
         </div>
         <!-- data side, which contains all reservations data -->
          <div class="right-side">
